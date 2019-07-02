@@ -52,8 +52,7 @@ public final class Task {
 
     /**
      * Use this constructor to create a new active Task.
-     *
-     * @param title       title of the task
+     * @param title title of the task
      * @param description description of the task
      */
     @Ignore
@@ -64,10 +63,9 @@ public final class Task {
     /**
      * Use this constructor to create an active Task if the Task already has an id (copy of another
      * Task).
-     *
-     * @param title       title of the task
+     * @param title title of the task
      * @param description description of the task
-     * @param id          id of the task
+     * @param id id of the task
      */
     @Ignore
     public Task(@Nullable String title, @Nullable String description, @NonNull String id) {
@@ -76,10 +74,9 @@ public final class Task {
 
     /**
      * Use this constructor to create a new completed Task.
-     *
-     * @param title       title of the task
+     * @param title title of the task
      * @param description description of the task
-     * @param completed   true if the task is completed, false if it's active
+     * @param completed true if the task is completed, false if it's active
      */
     @Ignore
     public Task(@Nullable String title, @Nullable String description, boolean completed) {
@@ -89,11 +86,10 @@ public final class Task {
     /**
      * Use this constructor to specify a completed Task if the Task already has an id (copy of
      * another Task).
-     *
-     * @param title       title of the task
+     * @param title title of the task
      * @param description description of the task
-     * @param id          id of the task
-     * @param completed   true if the task is completed, false if it's active
+     * @param id id of the task
+     * @param completed true if the task is completed, false if it's active
      */
     public Task(@Nullable String title, @Nullable String description,
                 @NonNull String id, boolean completed) {
@@ -137,17 +133,19 @@ public final class Task {
 
     public boolean isEmpty() {
         return Strings.isNullOrEmpty(mTitle) &&
-               Strings.isNullOrEmpty(mDescription);
+            Strings.isNullOrEmpty(mDescription);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Task task = (Task) o;
         return Objects.equal(mId, task.mId) &&
-               Objects.equal(mTitle, task.mTitle) &&
-               Objects.equal(mDescription, task.mDescription);
+            Objects.equal(mTitle, task.mTitle) &&
+            Objects.equal(mDescription, task.mDescription);
     }
 
     @Override

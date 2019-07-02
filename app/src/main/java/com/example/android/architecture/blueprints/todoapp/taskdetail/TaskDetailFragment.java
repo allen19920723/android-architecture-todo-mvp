@@ -86,7 +86,7 @@ public class TaskDetailFragment extends Fragment implements TaskDetailContract.V
 
         // Set up floating action button
         FloatingActionButton fab =
-                (FloatingActionButton) getActivity().findViewById(R.id.fab_edit_task);
+            (FloatingActionButton) getActivity().findViewById(R.id.fab_edit_task);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,16 +148,16 @@ public class TaskDetailFragment extends Fragment implements TaskDetailContract.V
 
         mDetailCompleteStatus.setChecked(complete);
         mDetailCompleteStatus.setOnCheckedChangeListener(
-                new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked) {
-                            mPresenter.completeTask();
-                        } else {
-                            mPresenter.activateTask();
-                        }
+            new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        mPresenter.completeTask();
+                    } else {
+                        mPresenter.activateTask();
                     }
-                });
+                }
+            });
     }
 
     @Override
@@ -174,13 +174,13 @@ public class TaskDetailFragment extends Fragment implements TaskDetailContract.V
 
     public void showTaskMarkedComplete() {
         Snackbar.make(getView(), getString(R.string.task_marked_complete), Snackbar.LENGTH_LONG)
-                .show();
+            .show();
     }
 
     @Override
     public void showTaskMarkedActive() {
         Snackbar.make(getView(), getString(R.string.task_marked_active), Snackbar.LENGTH_LONG)
-                .show();
+            .show();
     }
 
     @Override

@@ -64,9 +64,8 @@ public class TasksRepository implements TasksDataSource {
 
     /**
      * Returns the single instance of this class, creating it if necessary.
-     *
      * @param tasksRemoteDataSource the backend data source
-     * @param tasksLocalDataSource  the device storage data source
+     * @param tasksLocalDataSource the device storage data source
      * @return the {@link TasksRepository} instance
      */
     public static TasksRepository getInstance(TasksDataSource tasksRemoteDataSource,

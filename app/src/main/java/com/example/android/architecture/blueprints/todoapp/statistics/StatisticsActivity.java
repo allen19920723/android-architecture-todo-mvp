@@ -17,13 +17,16 @@
 package com.example.android.architecture.blueprints.todoapp.statistics;
 
 import android.os.Bundle;
+
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.MenuItem;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
@@ -60,15 +63,15 @@ public class StatisticsActivity extends AppCompatActivity {
         }
 
         StatisticsFragment statisticsFragment = (StatisticsFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.contentFrame);
+            .findFragmentById(R.id.contentFrame);
         if (statisticsFragment == null) {
             statisticsFragment = StatisticsFragment.newInstance();
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    statisticsFragment, R.id.contentFrame);
+                statisticsFragment, R.id.contentFrame);
         }
 
         new StatisticsPresenter(
-                Injection.provideTasksRepository(getApplicationContext()), statisticsFragment);
+            Injection.provideTasksRepository(getApplicationContext()), statisticsFragment);
     }
 
     @Override
@@ -84,24 +87,24 @@ public class StatisticsActivity extends AppCompatActivity {
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        switch (menuItem.getItemId()) {
-                            case R.id.list_navigation_menu_item:
-                                NavUtils.navigateUpFromSameTask(StatisticsActivity.this);
-                                break;
-                            case R.id.statistics_navigation_menu_item:
-                                // Do nothing, we're already on that screen
-                                break;
-                            default:
-                                break;
-                        }
-                        // Close the navigation drawer when an item is selected.
-                        menuItem.setChecked(true);
-                        mDrawerLayout.closeDrawers();
-                        return true;
+            new NavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(MenuItem menuItem) {
+                    switch (menuItem.getItemId()) {
+                        case R.id.list_navigation_menu_item:
+                            NavUtils.navigateUpFromSameTask(StatisticsActivity.this);
+                            break;
+                        case R.id.statistics_navigation_menu_item:
+                            // Do nothing, we're already on that screen
+                            break;
+                        default:
+                            break;
                     }
-                });
+                    // Close the navigation drawer when an item is selected.
+                    menuItem.setChecked(true);
+                    mDrawerLayout.closeDrawers();
+                    return true;
+                }
+            });
     }
 }

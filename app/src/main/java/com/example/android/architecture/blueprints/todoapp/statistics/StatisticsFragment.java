@@ -17,9 +17,11 @@
 package com.example.android.architecture.blueprints.todoapp.statistics;
 
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,8 +79,8 @@ public class StatisticsFragment extends Fragment implements StatisticsContract.V
             mStatisticsTV.setText(getResources().getString(R.string.statistics_no_tasks));
         } else {
             String displayString = getResources().getString(R.string.statistics_active_tasks) + " "
-                    + numberOfIncompleteTasks + "\n" + getResources().getString(
-                    R.string.statistics_completed_tasks) + " " + numberOfCompletedTasks;
+                + numberOfIncompleteTasks + "\n" + getResources().getString(
+                R.string.statistics_completed_tasks) + " " + numberOfCompletedTasks;
             mStatisticsTV.setText(displayString);
         }
     }

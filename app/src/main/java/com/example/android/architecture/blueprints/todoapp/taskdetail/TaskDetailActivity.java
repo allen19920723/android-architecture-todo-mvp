@@ -17,6 +17,7 @@
 package com.example.android.architecture.blueprints.todoapp.taskdetail;
 
 import android.os.Bundle;
+
 import androidx.annotation.VisibleForTesting;
 import androidx.test.espresso.IdlingResource;
 import androidx.appcompat.app.ActionBar;
@@ -51,20 +52,20 @@ public class TaskDetailActivity extends AppCompatActivity {
         String taskId = getIntent().getStringExtra(EXTRA_TASK_ID);
 
         TaskDetailFragment taskDetailFragment = (TaskDetailFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.contentFrame);
+            .findFragmentById(R.id.contentFrame);
 
         if (taskDetailFragment == null) {
             taskDetailFragment = TaskDetailFragment.newInstance(taskId);
 
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    taskDetailFragment, R.id.contentFrame);
+                taskDetailFragment, R.id.contentFrame);
         }
 
         // Create the presenter
         new TaskDetailPresenter(
-                taskId,
-                Injection.provideTasksRepository(getApplicationContext()),
-                taskDetailFragment);
+            taskId,
+            Injection.provideTasksRepository(getApplicationContext()),
+            taskDetailFragment);
     }
 
     @Override

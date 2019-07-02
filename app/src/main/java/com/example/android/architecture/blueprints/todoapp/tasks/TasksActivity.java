@@ -64,22 +64,22 @@ public class TasksActivity extends AppCompatActivity {
         }
 
         TasksFragment tasksFragment =
-                (TasksFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+            (TasksFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
         if (tasksFragment == null) {
             // Create the fragment
             tasksFragment = TasksFragment.newInstance();
             ActivityUtils.addFragmentToActivity(
-                    getSupportFragmentManager(), tasksFragment, R.id.contentFrame);
+                getSupportFragmentManager(), tasksFragment, R.id.contentFrame);
         }
 
         // Create the presenter
         mTasksPresenter = new TasksPresenter(
-                Injection.provideTasksRepository(getApplicationContext()), tasksFragment);
+            Injection.provideTasksRepository(getApplicationContext()), tasksFragment);
 
         // Load previously saved state, if available.
         if (savedInstanceState != null) {
             TasksFilterType currentFiltering =
-                    (TasksFilterType) savedInstanceState.getSerializable(CURRENT_FILTERING_KEY);
+                (TasksFilterType) savedInstanceState.getSerializable(CURRENT_FILTERING_KEY);
             mTasksPresenter.setFiltering(currentFiltering);
         }
     }
@@ -104,27 +104,27 @@ public class TasksActivity extends AppCompatActivity {
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        switch (menuItem.getItemId()) {
-                            case R.id.list_navigation_menu_item:
-                                // Do nothing, we're already on that screen
-                                break;
-                            case R.id.statistics_navigation_menu_item:
-                                Intent intent =
-                                        new Intent(TasksActivity.this, StatisticsActivity.class);
-                                startActivity(intent);
-                                break;
-                            default:
-                                break;
-                        }
-                        // Close the navigation drawer when an item is selected.
-                        menuItem.setChecked(true);
-                        mDrawerLayout.closeDrawers();
-                        return true;
+            new NavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(MenuItem menuItem) {
+                    switch (menuItem.getItemId()) {
+                        case R.id.list_navigation_menu_item:
+                            // Do nothing, we're already on that screen
+                            break;
+                        case R.id.statistics_navigation_menu_item:
+                            Intent intent =
+                                new Intent(TasksActivity.this, StatisticsActivity.class);
+                            startActivity(intent);
+                            break;
+                        default:
+                            break;
                     }
-                });
+                    // Close the navigation drawer when an item is selected.
+                    menuItem.setChecked(true);
+                    mDrawerLayout.closeDrawers();
+                    return true;
+                }
+            });
     }
 
     @VisibleForTesting

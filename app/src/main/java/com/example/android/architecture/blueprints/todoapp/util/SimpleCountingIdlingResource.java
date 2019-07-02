@@ -42,7 +42,6 @@ public final class SimpleCountingIdlingResource implements IdlingResource {
 
     /**
      * Creates a SimpleCountingIdlingResource
-     *
      * @param resourceName the resource name this resource should report to Espresso.
      */
     public SimpleCountingIdlingResource(String resourceName) {
@@ -73,9 +72,7 @@ public final class SimpleCountingIdlingResource implements IdlingResource {
 
     /**
      * Decrements the count of in-flight transactions to the resource being monitored.
-     *
      * If this operation results in the counter falling below 0 - an exception is raised.
-     *
      * @throws IllegalStateException if the counter is below 0.
      */
     public void decrement() {

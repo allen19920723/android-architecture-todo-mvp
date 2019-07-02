@@ -41,13 +41,13 @@ public class TasksLocalDataSource implements TasksDataSource {
 
     // Prevent direct instantiation.
     private TasksLocalDataSource(@NonNull AppExecutors appExecutors,
-            @NonNull TasksDao tasksDao) {
+                                 @NonNull TasksDao tasksDao) {
         mAppExecutors = appExecutors;
         mTasksDao = tasksDao;
     }
 
     public static TasksLocalDataSource getInstance(@NonNull AppExecutors appExecutors,
-            @NonNull TasksDao tasksDao) {
+                                                   @NonNull TasksDao tasksDao) {
         if (INSTANCE == null) {
             synchronized (TasksLocalDataSource.class) {
                 if (INSTANCE == null) {
